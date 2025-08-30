@@ -3,6 +3,65 @@ import streamlit as st
 from PIL import Image
 import io, zipfile
 
+# ---------------- SEO-Friendly Description ----------------
+st.markdown(
+    """
+# Free Online Image DPI Converter – Change Image Resolution Instantly
+
+Convert your images to any DPI (dots per inch) **for free**, quickly and easily.  
+Whether you’re an author preparing print books, a photographer optimizing images for web, or a designer working on projects, this simple tool helps you adjust the resolution of JPG and PNG images without installing software.
+
+---
+
+## How It Works
+1. **Upload** one or more images (JPG or PNG).  
+2. **Select your desired DPI**:
+   - **300 DPI** – Ideal for print books or high-quality prints  
+   - **96 DPI** – Optimized for web, eBooks, or presentations  
+   - **Custom DPI** – Enter any value between 72 and 1200  
+3. **Choose if you want to optimize** for smaller file size (optional).  
+4. **Download** your converted images:
+   - Single image → direct download  
+   - Multiple images → packaged in a ZIP file  
+
+---
+
+## Why Change DPI?
+- **Print quality:** Images must be at 300 DPI for crisp, professional prints.  
+- **Web & digital:** Reduce DPI to 96 for faster loading without noticeable quality loss.  
+- **Design flexibility:** Easily convert your images for presentations, social media, or eBooks.  
+
+---
+
+## Tips for Best Results
+- Always keep a **backup of your original images**.  
+- For print projects, stick to **300 DPI** to avoid blurry or pixelated prints.  
+- Use the **Optimize Size/Quality** option to reduce file size when sharing online.  
+
+---
+
+## Who Can Use This Tool?
+- **Authors & publishers** preparing print books or eBooks  
+- **Photographers & designers** needing quick DPI adjustments  
+- **Students & professionals** optimizing images for presentations  
+- **Anyone** who wants a free, simple, and fast DPI converter  
+
+---
+
+## Additional Features
+- Free to use, no signup required  
+- Works on **all major browsers**  
+- Fast conversion for **multiple images at once**  
+- Branded by **Relatable Media LLC**  
+
+---
+
+Love this free tool? Consider supporting us:  
+[Buy Me a Coffee](https://buymeacoffee.com/relatable_media) – every $1 or $2 helps us keep offering tools like this for free!
+""",
+    unsafe_allow_html=True
+)
+
 # ---------------- HEADER ----------------
 col1, col2 = st.columns([1, 3])
 
@@ -24,14 +83,6 @@ with col2:
     )
 
 st.markdown("---")  # horizontal line separator
-
-# ---------------- DESCRIPTION ----------------
-st.write("""
-Upload one or more images, choose a DPI setting, and download the converted images.  
-**Tips for authors**:  
-- 📚 Print books → use **300 DPI**  
-- 📱 eBooks & web → use **96 DPI**
-""")
 
 # ---------------- FILE UPLOADER ----------------
 uploaded_files = st.file_uploader(
@@ -132,4 +183,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
