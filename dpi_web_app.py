@@ -91,4 +91,14 @@ if uploaded_files:
 
 # --- Footer ---
 st.markdown("---")
-st.markdown("Copyright of Relatable Media LLC. Available for free use.  \nIf you have any comments or questions please contact info@relatable-media.com.  \nGo back to www.relatable-media.com")
+#st.markdown("Copyright of Relatable Media LLC. Available for free use.  \nIf you have any comments or questions please contact info@relatable-media.com.  \nGo back to www.relatable-media.com")
+st.markdown(
+    """
+    <p style='font-size: 12px; color: gray;'>
+    Copyright of Relatable Media LLC. Available for free use.<br>
+    If you have any comments or questions please contact info@relatable-media.com.<br>
+    Go back to www.relatable-media.com
+    </p>
+    """,
+    unsafe_allow_html=True
+)
