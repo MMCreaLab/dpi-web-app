@@ -8,17 +8,24 @@ import io, zipfile
 # Load logo
 logo = Image.open("RM_logo.png")
 
-# Create two columns for layout
-col1, col2 = st.columns([1, 5])  # left (logo), right (title)
+# Create two columns for layout: left for logo, right for title/description
+col1, col2 = st.columns([1, 3])  # Adjust ratios for proper spacing
 
 with col1:
-    st.image(logo, width=200)  # adjust width as needed
+    st.image(logo, width=120)  # Logo width, adjust as needed
 
 with col2:
-    st.title("Free DPI Converter 📸")
     st.markdown(
-        """Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
-        Free tool for authors, publishers, and creators."""
+        """
+        <div style='display:flex; flex-direction:column; justify-content:center;'>
+            <h2 style='margin:0;'>Free DPI Converter 📸</h2>
+            <p style='margin:0; font-size:14px; color:gray;'>
+                Changes the DPI of your images (300 DPI recommended for prints).<br>
+                Free tool for authors, publishers, and creators.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
 st.markdown("---")  # horizontal line separator
