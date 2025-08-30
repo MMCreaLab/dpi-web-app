@@ -17,7 +17,7 @@ with col1:
     st.image(logo, width=200)  # adjust width as needed
 
 with col2:
-    st.title("Free DPI Converter")
+    st.title("Free DPI Converter 📸")
     st.markdown(
         """
         Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
@@ -26,9 +26,7 @@ with col2:
     )
 
 st.markdown("---")  # horizontal line separator
-st.set_page_config(page_title="Free Image DPI Converter for Authors", page_icon="📸")
 
-st.title("📸 Free Image DPI Converter for Authors")
 st.write(
     """
 Upload one or more images, choose a DPI setting, and download the converted images.  
@@ -99,7 +97,7 @@ if uploaded_files:
 # --- Footer ---
 st.markdown("---")
 st.caption("""
-           Copyright of Relatable Media LLC. Available for free use. " \
+           Copyright of Relatable Media LLC. Available for free use.
 "          If you have any comments or questions please contact info@relatable-media.com
            Go back to www.relatable-media.com
            """)
