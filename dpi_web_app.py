@@ -115,7 +115,7 @@ if uploaded_files:
 st.markdown(
     """
     <hr>
-    <div style='text-align: center; font-size:13px; color: gray;'>
+    <div style='text-align: center; font-size:13px; color: gray; line-height:1.5;'>
         <p>© Relatable Media LLC. Available for free use.</p>
         <p>If you have any comments or questions, please contact 
            <a href="mailto:info@relatable-media.com">info@relatable-media.com</a>.
@@ -124,9 +124,9 @@ st.markdown(
            Go back to www.relatable-media.com</a>
         </p>
         <br>
-        <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank">
-            <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" 
-                 alt="Buy Me A Coffee" height="40">
+        <a href="https://buymeacoffee.com/relatable_media" target="_blank">
+            <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" 
+                 alt="Buy Me A Coffee" height="35">
         </a>
     </div>
     """,
