@@ -11,16 +11,16 @@ from PIL import Image
 logo = Image.open("RM_logo.png")
 
 # Create two columns for layout
-col1, col2 = st.columns([1, 3])  # left (logo), right (title)
+col1, col2 = st.columns([1, 5])  # left (logo), right (title)
 
 with col1:
-    st.image(logo, width=120)  # adjust width as needed
+    st.image(logo, width=200)  # adjust width as needed
 
 with col2:
-    st.title("Relatable Media – Free DPI Converter")
+    st.title("Free DPI Converter")
     st.markdown(
         """
-        Convert your images to **300 DPI** for print.  
+        Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
         Free tool for authors, publishers, and creators.
         """
     )
@@ -98,4 +98,4 @@ if uploaded_files:
 
 # --- Footer ---
 st.markdown("---")
-st.caption("Made with ❤️ to help indie authors prepare images for print and eBooks. Powered by Streamlit + Pillow.")
+st.caption("Copyright of Relatable Media LLC. Available for free use. If you have any comments or questions please contact info@relatable-media.com")
