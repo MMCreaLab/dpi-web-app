@@ -19,10 +19,10 @@ with col1:
 with col2:
     st.title("Free DPI Converter 📸")
     st.markdown(
-        """
-        Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
-        Free tool for authors, publishers, and creators.
-        """)
+        """ Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
+        Free tool for authors, publishers, and creators. """)
+
+st.markdown("---")  # horizontal line separator
 
 st.write("""
 Upload one or more images, choose a DPI setting, and download the converted images.  
