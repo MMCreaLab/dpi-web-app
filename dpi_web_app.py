@@ -8,7 +8,7 @@ from PIL import Image
 
 # --- HEADER SECTION ---
 # Load logo
-logo = Image.open("RM logo White BG.png")
+logo = Image.open("RM_logo.png")
 
 # Create two columns for layout
 col1, col2 = st.columns([1, 3])  # left (logo), right (title)
