@@ -91,8 +91,8 @@ if uploaded_files:
 
 # --- Footer ---
 st.markdown("---")
-st.caption("""
-           Copyright of Relatable Media LLC. Available for free use.
-"          If you have any comments or questions please contact info@relatable-media.com
-           Go back to www.relatable-media.com
-           """)
+st.caption(
+           "Copyright of Relatable Media LLC. Available for free use. \n"
+"          "If you have any comments or questions please contact info@relatable-media.com. \n"
+           "Go back to www.relatable-media.com"
+           )
