@@ -22,19 +22,16 @@ with col2:
         """
         Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
         Free tool for authors, publishers, and creators.
-        """
-    )
+        """)
 
 st.markdown("---")  # horizontal line separator
 
-st.write(
-    """
+st.write("""
 Upload one or more images, choose a DPI setting, and download the converted images.  
 **Tips for authors**:  
 - 📚 Print books → use **300 DPI**  
 - 📱 eBooks & web → use **96 DPI**
-"""
-)
+""" )
 
 # --- File uploader (multiple files allowed) ---
 uploaded_files = st.file_uploader(
