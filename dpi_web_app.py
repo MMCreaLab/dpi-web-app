@@ -2,15 +2,12 @@
 import streamlit as st
 from PIL import Image
 import io, zipfile
-# ---------------- HEADER ----------------
-# Load logo
-logo = Image.open("RM_logo.png")
 
-# Create two columns for layout: logo on left, title/description on right
+# ---------------- HEADER ----------------
 col1, col2 = st.columns([1, 3])
 
 with col1:
-    st.image(logo, width=120)  # Display logo (not clickable)
+    st.image("RM_logo.png", width=120)  # Logo (local file)
 
 with col2:
     st.markdown(
@@ -67,31 +64,52 @@ if uploaded_files:
     st.write(f"✅ {len(uploaded_files)} file(s) uploaded")
 
     if st.button("Convert Images"):
-        zip_buffer = io.BytesIO()
+        if len(uploaded_files) == 1:
+            # Single file – direct download
+            uploaded_file = uploaded_files[0]
+            img = Image.open(uploaded_file)
+            output_buffer = io.BytesIO()
 
-        with zipfile.ZipFile(zip_buffer, "w") as zipf:
-            for uploaded_file in uploaded_files:
-                img = Image.open(uploaded_file)
-                output_buffer = io.BytesIO()
+            if uploaded_file.name.lower().endswith((".jpg", ".jpeg")):
+                quality = 85 if optimize else 100
+                img.save(output_buffer, format="JPEG", dpi=(dpi, dpi), quality=quality)
+                mime = "image/jpeg"
+            else:
+                img.save(output_buffer, format="PNG", dpi=(dpi, dpi))
+                mime = "image/png"
 
-                if uploaded_file.name.lower().endswith((".jpg", ".jpeg")):
-                    quality = 85 if optimize else 100
-                    img.save(output_buffer, format="JPEG", dpi=(dpi, dpi), quality=quality)
-                else:
-                    img.save(output_buffer, format="PNG", dpi=(dpi, dpi))
+            output_buffer.seek(0)
 
-                zipf.writestr(uploaded_file.name, output_buffer.getvalue())
+            st.success(f"{uploaded_file.name} converted to {dpi} DPI! 🎉")
+            st.download_button(
+                label="📥 Download Converted Image",
+                data=output_buffer,
+                file_name=uploaded_file.name,
+                mime=mime
+            )
 
-        zip_buffer.seek(0)
+        else:
+            # Multiple files – ZIP download
+            zip_buffer = io.BytesIO()
+            with zipfile.ZipFile(zip_buffer, "w") as zipf:
+                for uploaded_file in uploaded_files:
+                    img = Image.open(uploaded_file)
+                    output_buffer = io.BytesIO()
+                    if uploaded_file.name.lower().endswith((".jpg", ".jpeg")):
+                        quality = 85 if optimize else 100
+                        img.save(output_buffer, format="JPEG", dpi=(dpi, dpi), quality=quality)
+                    else:
+                        img.save(output_buffer, format="PNG", dpi=(dpi, dpi))
+                    zipf.writestr(uploaded_file.name, output_buffer.getvalue())
 
-        st.success(f"All images converted to {dpi} DPI! 🎉")
-
-        st.download_button(
-            label="📥 Download Converted Images (ZIP)",
-            data=zip_buffer,
-            file_name="converted_images.zip",
-            mime="application/zip"
-        )
+            zip_buffer.seek(0)
+            st.success(f"All images converted to {dpi} DPI! 🎉")
+            st.download_button(
+                label="📥 Download Converted Images (ZIP)",
+                data=zip_buffer,
+                file_name="converted_images.zip",
+                mime="application/zip"
+            )
 
 # ---------------- FOOTER ----------------
 st.markdown(
