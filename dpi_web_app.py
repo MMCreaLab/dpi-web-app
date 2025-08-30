@@ -2,22 +2,16 @@
 import streamlit as st
 from PIL import Image
 import io, zipfile
-
 # ---------------- HEADER ----------------
+# Load logo
+logo = Image.open("RM_logo.png")
+
+# Create two columns for layout: logo on left, title/description on right
 col1, col2 = st.columns([1, 3])
 
-# Clickable logo
 with col1:
-    st.markdown(
-        """
-        <a href="https://www.relatable-media.com" target="_blank">
-            <img src="RM_logo.png" width="120">
-        </a>
-        """,
-        unsafe_allow_html=True
-    )
+    st.image(logo, width=120)  # Display logo (not clickable)
 
-# Title + description
 with col2:
     st.markdown(
         """
