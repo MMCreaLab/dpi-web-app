@@ -24,8 +24,6 @@ with col2:
         Free tool for authors, publishers, and creators.
         """)
 
-st.markdown("---")  # horizontal line separator
-
 st.write("""
 Upload one or more images, choose a DPI setting, and download the converted images.  
 **Tips for authors**:  
