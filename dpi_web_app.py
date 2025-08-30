@@ -4,6 +4,28 @@ import streamlit as st
 from PIL import Image
 import io, zipfile
 
+from PIL import Image
+
+# --- HEADER SECTION ---
+# Load logo
+logo = Image.open("RM logo White BG.png")
+
+# Create two columns for layout
+col1, col2 = st.columns([1, 3])  # left (logo), right (title)
+
+with col1:
+    st.image(logo, width=120)  # adjust width as needed
+
+with col2:
+    st.title("Relatable Media – Free DPI Converter")
+    st.markdown(
+        """
+        Convert your images to **300 DPI** for print.  
+        Free tool for authors, publishers, and creators.
+        """
+    )
+
+st.markdown("---")  # horizontal line separator
 st.set_page_config(page_title="Free Image DPI Converter for Authors", page_icon="📸")
 
 st.title("📸 Free Image DPI Converter for Authors")
