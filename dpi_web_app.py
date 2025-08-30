@@ -125,10 +125,11 @@ st.markdown(
         </p>
         <br>
         <a href="https://buymeacoffee.com/relatable_media" target="_blank">
-            <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" 
-                 alt="Buy Me A Coffee" height="35">
+            <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" 
+                 alt="Buy Me A Coffee" height="40">
         </a>
     </div>
     """,
     unsafe_allow_html=True
 )
+
