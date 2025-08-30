@@ -1,13 +1,12 @@
 #python -m streamlit run dpi_web_app.py
-
 import streamlit as st
 from PIL import Image
 import io, zipfile
 
 # ---------------- HEADER ----------------
-# Logo + Title/Description in two columns
 col1, col2 = st.columns([1, 3])
 
+# Clickable logo
 with col1:
     st.markdown(
         """
@@ -18,6 +17,7 @@ with col1:
         unsafe_allow_html=True
     )
 
+# Title + description
 with col2:
     st.markdown(
         """
@@ -34,6 +34,7 @@ with col2:
 
 st.markdown("---")  # horizontal line separator
 
+# ---------------- DESCRIPTION ----------------
 st.write("""
 Upload one or more images, choose a DPI setting, and download the converted images.  
 **Tips for authors**:  
@@ -79,7 +80,6 @@ if uploaded_files:
                 img = Image.open(uploaded_file)
                 output_buffer = io.BytesIO()
 
-                # Save with DPI and optimization
                 if uploaded_file.name.lower().endswith((".jpg", ".jpeg")):
                     quality = 85 if optimize else 100
                     img.save(output_buffer, format="JPEG", dpi=(dpi, dpi), quality=quality)
@@ -120,4 +120,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
