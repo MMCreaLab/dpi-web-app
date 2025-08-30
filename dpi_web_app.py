@@ -93,6 +93,6 @@ if uploaded_files:
 st.markdown("---")
 st.caption(
            "Copyright of Relatable Media LLC. Available for free use. \n"
-"          "If you have any comments or questions please contact info@relatable-media.com. \n"
+           "If you have any comments or questions please contact info@relatable-media.com. \n"
            "Go back to www.relatable-media.com"
            )
