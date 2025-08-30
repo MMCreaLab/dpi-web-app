@@ -4,9 +4,7 @@ import streamlit as st
 from PIL import Image
 import io, zipfile
 
-from PIL import Image
-
-# --- HEADER SECTION ---
+# ---------------- HEADER ----------------
 # Load logo
 logo = Image.open("RM_logo.png")
 
@@ -19,8 +17,9 @@ with col1:
 with col2:
     st.title("Free DPI Converter 📸")
     st.markdown(
-        """ Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
-        Free tool for authors, publishers, and creators. """)
+        """Changes the DPI (resolution) of your images (300 DPI recommended for prints).  
+        Free tool for authors, publishers, and creators."""
+    )
 
 st.markdown("---")  # horizontal line separator
 
@@ -29,16 +28,16 @@ Upload one or more images, choose a DPI setting, and download the converted imag
 **Tips for authors**:  
 - 📚 Print books → use **300 DPI**  
 - 📱 eBooks & web → use **96 DPI**
-""" )
+""")
 
-# --- File uploader (multiple files allowed) ---
+# ---------------- FILE UPLOADER ----------------
 uploaded_files = st.file_uploader(
     "Upload images (JPG or PNG)", 
     type=["png", "jpg", "jpeg"], 
     accept_multiple_files=True
 )
 
-# --- DPI Presets ---
+# ---------------- DPI PRESETS ----------------
 st.subheader("Select Output DPI")
 
 preset = st.radio(
@@ -54,10 +53,10 @@ elif preset == "Web (96 DPI)":
 else:
     dpi = st.number_input("Enter custom DPI:", min_value=72, max_value=1200, value=300, step=1)
 
-# --- Optimization option ---
+# ---------------- OPTIMIZATION ----------------
 optimize = st.checkbox("Optimize Size/Quality (smaller file, slightly lower quality)", value=False)
 
-# --- Conversion ---
+# ---------------- CONVERSION ----------------
 if uploaded_files:
     st.write(f"✅ {len(uploaded_files)} file(s) uploaded")
 
@@ -89,16 +88,25 @@ if uploaded_files:
             mime="application/zip"
         )
 
-# --- Footer ---
-st.markdown("---")
-#st.markdown("Copyright of Relatable Media LLC. Available for free use.  \nIf you have any comments or questions please contact info@relatable-media.com.  \nGo back to www.relatable-media.com")
+# ---------------- FOOTER ----------------
 st.markdown(
     """
-    <p style='font-size: 12px; color: gray;'>
-    Copyright of Relatable Media LLC. Available for free use.<br>
-    If you have any comments or questions please contact info@relatable-media.com.<br>
-    Go back to www.relatable-media.com
-    </p>
+    <hr>
+    <div style='text-align: center; font-size:13px; color: gray;'>
+        <p>© Relatable Media LLC. Available for free use.</p>
+        <p>If you have any comments or questions, please contact 
+           <a href="mailto:info@relatable-media.com">info@relatable-media.com</a>.
+        </p>
+        <p><a href="https://www.relatable-media.com" target="_blank">
+           Go back to www.relatable-media.com</a>
+        </p>
+        <br>
+        <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank">
+            <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" 
+                 alt="Buy Me A Coffee" height="40">
+        </a>
+    </div>
     """,
     unsafe_allow_html=True
 )
+
